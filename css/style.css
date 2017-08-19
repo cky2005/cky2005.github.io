@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400italic,700italic,400,700");
+@import url("/gfonts/css.css?family=Droid+Serif:400italic,700italic,400,700");
 @font-face {
   font-family: 'FontAwesome';
   font-style: normal;
@@ -12,7 +12,7 @@ html {
   background: #6c7989 -o-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 -ms-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
-  background-image: url("images/checker.png");
+  background-image: url("#008b8b");
 }
 body {
   padding: 50px 0;
@@ -20,7 +20,7 @@ body {
   font: 1em/1.5 "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #555;
   font-weight: 300;
-  background: url("images/woods.jpg") top left;
+  background: #008b8b;
 }
 .wrapper {
   width: 680px;
@@ -48,7 +48,7 @@ strong {
   font-weight: 700;
 }
 .content {
-  background: url("images/paper.png");
+  background: bottom;
   border-radius: 0 0 8px 8px;
   border-top: 1px solid #fff;
 }
@@ -548,12 +548,12 @@ article footer .tags:before {
   margin: 20px auto 0;
   padding: 20px 0 0;
   font-size: 0.875em;
-  color: #b00;
+  color: #002;
   overflow: hidden;
   text-align: center;
 }
 #footer a {
-  color: #a00;
+  color: #fff;
   font-style: italic;
 }
 @media screen and (max-width: 740px) {
