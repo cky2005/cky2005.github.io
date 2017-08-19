@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="kai2017">
 <meta property="og:description" content="jQuery库的优化国内提供jQuery的互联网公司很多，大家耳熟能详的互联网公司基本都免费提供了常用JS库的CDN加速服务。在我的测试中，百度的服务的速度在国内国外都比较理想，因此这里将jQuery替换成百度的。另外，我还希望在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-19T14:24:28.885Z">
+<meta property="og:updated_time" content="2017-08-19T17:21:37.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客jQuery库的优化">
 <meta name="twitter:description" content="jQuery库的优化国内提供jQuery的互联网公司很多，大家耳熟能详的互联网公司基本都免费提供了常用JS库的CDN加速服务。在我的测试中，百度的服务的速度在国内国外都比较理想，因此这里将jQuery替换成百度的。另外，我还希望在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份。">
@@ -74,8 +74,12 @@
   
   <div class="entry">
     
-      <p>jQuery库的优化<br>国内提供jQuery的互联网公司很多，大家耳熟能详的互联网公司基本都免费提供了常用JS库的CDN加速服务。在我的测试中，百度的服务的速度在国内国外都比较理想，因此这里将jQuery替换成百度的。另外，我还希望在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份。<br><a id="more"></a><br>我们要修改的是themes/<code>主题</code>/layout/_partial/after-footer.ejs这个文件,把下面的网址修改指向其它地方<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>谷歌字体现在都放在谷歌中国的服务器上了,貌似直接用谷歌的地址就行了,如果那天又不能用再去找其它替代<br><a href="https://sb.sb/css-cdn/" target="_blank" rel="external">前端 CDNJS 库及 Google Fonts、Ajax 和 Gravatar 国内加速服务</a></p>
+      <p>jQuery库的优化<br>国内提供jQuery的互联网公司很多，大家耳熟能详的互联网公司基本都免费提供了常用JS库的CDN加速服务。在我的测试中，百度的服务的速度在国内国外都比较理想，因此这里将jQuery替换成百度的。另外，我还希望在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份。<br><a id="more"></a><br>我们要修改的是themes/‘主题’/layout/_partial/after-footer.ejs这个文件,把下面的网址修改指向其它地方<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>换成百度的jquery<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>谷歌字体现在都放在谷歌中国的服务器上了,貌似直接用谷歌的地址就行了,如果那天又不能用再去找其它替代</p>
+<h2 id="前端-CDNJS-库及-Google-Fonts、Ajax-和-Gravatar-国内加速服务"><a href="#前端-CDNJS-库及-Google-Fonts、Ajax-和-Gravatar-国内加速服务" class="headerlink" title="前端 CDNJS 库及 Google Fonts、Ajax 和 Gravatar 国内加速服务"></a><a href="https://sb.sb/css-cdn/" target="_blank" rel="external">前端 CDNJS 库及 Google Fonts、Ajax 和 Gravatar 国内加速服务</a></h2><p>推荐这篇优化文章:<br>[Hexo Landscape]主题的字体和JS库优化(<a href="http://kuangqi.me/tricks/hexo-optimizations-for-mainland-china/" target="_blank" rel="external">http://kuangqi.me/tricks/hexo-optimizations-for-mainland-china/</a>)</p>
+<hr>
+<p>试了下把jquery.min.js和hexo 放一起git到github上面,载入地址指向github,结果出现下面问题,估计是载入太慢了….<br>[jQuery]使用jQuery時，出現is not defined錯誤訊息<br>造成這種錯誤出現有以下三點:<br>1.您的JavaScript檔案沒有被正確地加載到您的網頁(jQuery檔案或CDN沒有載入)<br>2.您的jQuery的核心檔是舊版本的，這種情況可能發生在有人編輯了核心檔案，或者使用的套件可能已經覆寫了$變數<br>3.您的JavaScript必須在網頁載入完整前載入，且需要用jQuery的話，必須將jQuery核心檔案放在使用它的JavaScript前面</p>
 
     
   </div>
@@ -109,7 +113,7 @@
   Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
 </div>
 <div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="/js/scale.fix.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
