@@ -10,24 +10,23 @@
     <meta name="author" content="kai2017">
   
   
-    <meta name="description" content="VPS 上搭建 Hexo方案选择1.VPS 上执行 hexo server，再配置 Nginx/caddy 反向代理，让域名指向 http://localhost:40002.本地生成静态文件，再部署到 VPS 上，用 Nginx 直接做 Web 服务器。
-使用 rsync 将 Hexo 部署到 VPS 上在 Hexo 目录下安装 rsync1npm install hexo-deployer-r">
+    <meta name="description" content="VPS 上搭建 Hexo本地生成静态文件，再部署到 VPS 上，用 Nginx/caddy 直接做 Web 服务器。">
   
-  <meta name="description" content="VPS 上搭建 Hexo方案选择1.VPS 上执行 hexo server，再配置 Nginx/caddy 反向代理，让域名指向 http://localhost:40002.本地生成静态文件，再部署到 VPS 上，用 Nginx 直接做 Web 服务器。 使用 rsync 将 Hexo 部署到 VPS 上在 Hexo 目录下安装 rsync1npm install hexo-deployer-r">
+  <meta name="description" content="VPS 上搭建 Hexo本地生成静态文件，再部署到 VPS 上，用 Nginx/caddy 直接做 Web 服务器。">
 <meta name="keywords" content="1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vps上部署hexo同步">
 <meta property="og:url" content="http://cky2005.github.com/2017/08/19/test4/index.html">
 <meta property="og:site_name" content="kai2017">
-<meta property="og:description" content="VPS 上搭建 Hexo方案选择1.VPS 上执行 hexo server，再配置 Nginx/caddy 反向代理，让域名指向 http://localhost:40002.本地生成静态文件，再部署到 VPS 上，用 Nginx 直接做 Web 服务器。 使用 rsync 将 Hexo 部署到 VPS 上在 Hexo 目录下安装 rsync1npm install hexo-deployer-r">
+<meta property="og:description" content="VPS 上搭建 Hexo本地生成静态文件，再部署到 VPS 上，用 Nginx/caddy 直接做 Web 服务器。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-19T06:20:59.350Z">
+<meta property="og:updated_time" content="2017-08-19T07:41:04.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vps上部署hexo同步">
-<meta name="twitter:description" content="VPS 上搭建 Hexo方案选择1.VPS 上执行 hexo server，再配置 Nginx/caddy 反向代理，让域名指向 http://localhost:40002.本地生成静态文件，再部署到 VPS 上，用 Nginx 直接做 Web 服务器。 使用 rsync 将 Hexo 部署到 VPS 上在 Hexo 目录下安装 rsync1npm install hexo-deployer-r">
+<meta name="twitter:description" content="VPS 上搭建 Hexo本地生成静态文件，再部署到 VPS 上，用 Nginx/caddy 直接做 Web 服务器。">
   
   
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -77,7 +76,7 @@
   
   <div class="entry">
     
-      <h3 id="VPS-上搭建-Hexo"><a href="#VPS-上搭建-Hexo" class="headerlink" title="VPS 上搭建 Hexo"></a>VPS 上搭建 Hexo</h3><p>方案选择<br>1.VPS 上执行 hexo server，再配置 Nginx/caddy 反向代理，让域名指向 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>2.本地生成静态文件，再部署到 VPS 上，用 Nginx 直接做 Web 服务器。</p>
+      <h3 id="VPS-上搭建-Hexo"><a href="#VPS-上搭建-Hexo" class="headerlink" title="VPS 上搭建 Hexo"></a>VPS 上搭建 Hexo</h3><p>本地生成静态文件，再部署到 VPS 上，用 Nginx/caddy 直接做 Web 服务器。<br><a id="more"></a></p>
 <h3 id="使用-rsync-将-Hexo-部署到-VPS-上"><a href="#使用-rsync-将-Hexo-部署到-VPS-上" class="headerlink" title="使用 rsync 将 Hexo 部署到 VPS 上"></a>使用 rsync 将 Hexo 部署到 VPS 上</h3><p>在 Hexo 目录下安装 rsync<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-rsync --save</div></pre></td></tr></table></figure></p>
 <p>根据 Hexo rsync 部署文档 在 Hexo 中的 _config.yml 中添加 Deploy 的配置，以下是我在自己项目中的配置代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: rsync</div><div class="line">  host: 你 VPS 的 IP 地址或者域名</div><div class="line">  user: root</div><div class="line">  root: 你想将 Hexo 生成的静态文件存放在 VPS 中的目录 例如: /www/hexo/blog/</div><div class="line">  port: 你 VPS 的 ssh 端口号</div><div class="line">  delete: <span class="keyword">true</span></div><div class="line">  verbose: <span class="keyword">true</span></div><div class="line">  ignore_errors: <span class="keyword">false</span></div></pre></td></tr></table></figure></p>
 <hr>
