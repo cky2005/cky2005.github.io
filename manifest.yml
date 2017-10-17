@@ -1,7 +1,0 @@
----
-applications:
-- buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
-  host: helloworld-html-${random-word}
-  name: helloworld-html
-  memory: 64M
-  stack: cflinuxfs2
